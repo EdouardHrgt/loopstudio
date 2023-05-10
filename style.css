@@ -147,7 +147,8 @@ header::after {
   gap: 2rem;
 }
 
-.nav-list a:hover {
+.nav-list a:hover,
+.footer-nav-list a:hover {
   border-bottom: 1px solid var(--clr-white);
 }
 
@@ -227,11 +228,23 @@ h1 {
   position: relative;
   width: fit-content;
   cursor: pointer;
+}
+
+.picture img,
+.picture h3 {
   transition: 0.3s;
 }
 
-.picture:hover {
-  filter: opacity(0.7);
+.picture-mobile {
+  display: none;
+}
+
+.picture:hover img {
+  opacity: 0.7;
+}
+
+.picture:hover h3 {
+  color: var(--clr-black);
 }
 
 .picture h3 {
@@ -239,6 +252,47 @@ h1 {
   bottom: 1.5rem;
   left: 1.5rem;
   max-width: 12rem;
+}
+
+/* FOOTER  */
+footer {
+  background-color: var(--clr-black);
+  margin-top: 8rem;
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-nav object {
+  margin-bottom: 1rem;
+}
+
+.footer-nav-list {
+  gap: 1rem;
+}
+
+.socials-copyright ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socials-copyright li {
+  transition: 0.3s;
+  margin-bottom: 1rem;
+}
+
+.socials-copyright li:hover {
+  box-shadow: 0 1px 0 var(--clr-white);
+}
+
+.socials-copyright svg {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1440px) {
@@ -252,7 +306,7 @@ h1 {
 
 @media screen and (max-width: 1390px) {
   .leader-txt {
-    right: -3rem;
+    right: 0rem;
     bottom: 0;
     padding: 2rem 0 0 2rem;
     height: 16.2rem;
@@ -262,6 +316,31 @@ h1 {
 @media screen and (max-width: 1024px) {
   .medium-margin {
     max-width: 90%;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+  }
+  .picture h3 {
+    left: 0.5rem;
+    max-width: 90%;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .footer-wrapper {
+    gap: 3rem;
+    flex-direction: column;
+  }
+  .footer-nav-list {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .socials-copyright {
+    display: grid;
+    place-items: center;
   }
 }
 
@@ -331,5 +410,25 @@ h1 {
   }
   .leader-txt h2 {
     margin-bottom: 1rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 1rem;
+    margin-top: 10rem;
+    overflow: hidden;
+  }
+  .picture-mobile {
+    display: block;
+  }
+  .picture-pc {
+    display: none;
+  }
+  .picture h3 {
+    left: 1rem;
+    max-width: 10rem;
+    font-size: 1.5rem;
   }
 }
